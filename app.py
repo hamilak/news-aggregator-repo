@@ -30,12 +30,13 @@ def get_feedly_client(token=None):
 
 def auth(request):
     feedly = get_feedly_client()
-    # Redirect the user to the feedly authorization URL to get user code
     code_url = feedly.get_code_url(FEEDLY_REDIRECT_URI)
     return redirect(code_url)
+
+
 @app.route('/', methods=['GET', 'POST'])
 def post():
-    pass
+    return "Hello"
 
 
 if __name__ == '__main__':
