@@ -34,8 +34,8 @@ def auth(request):
     return redirect(code_url)
 
 
-@app.route('/', methods=['GET', 'POST'])
-def post():
+@app.route('/', methods=['POST'])
+def fetch_data():
     return "Hello"
 
 
