@@ -4,6 +4,7 @@ from werkzeug.utils import redirect
 from services.services import FeedlyClient
 
 
+
 app = Flask(__name__)
 db_name = 'database.db'
 app.config['SECRET_KEY'] = 'potato'
@@ -33,10 +34,13 @@ def auth(request):
     code_url = feedly.get_code_url(FEEDLY_REDIRECT_URI)
     return redirect(code_url)
 
-
 @app.route('/', methods=['POST'])
 def fetch_data():
-    return "Hello"
+    news_source = request.json['news_source']
+    URL = request.json['URL']
+    news_content = request.json['news_content']
+    updated_at = request.json['updated_at']
+    # category_id = request.json[]
 
 
 if __name__ == '__main__':

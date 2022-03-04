@@ -1,7 +1,5 @@
-# -*- coding: UTF-8 -*-
 import requests
 import json
-from werkzeug.utils import redirect
 
 
 class FeedlyClient(object):
