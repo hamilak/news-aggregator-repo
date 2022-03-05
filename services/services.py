@@ -1,5 +1,6 @@
 import requests
 import json
+from werkzeug.utils import redirect
 
 
 class FeedlyClient(object):
@@ -106,3 +107,23 @@ class FeedlyClient(object):
             url += "/%s" % path
         return url
 
+FEEDLY_REDIRECT_URI = "http://fabreadly.com/auth_callback"
+FEEDLY_CLIENT_ID = "sandbox"
+FEEDLY_CLIENT_SECRET = "7x7xWjaq0u6Jguw4weEeCM9tyVsLwTPc"
+
+
+def get_feedly_client(token=None):
+    if token:
+        return FeedlyClient(token=token, sandbox=True)
+    else:
+        return FeedlyClient(
+            client_id=FEEDLY_CLIENT_ID,
+            client_secret=FEEDLY_CLIENT_SECRET,
+            sandbox=True
+        )
+
+
+def auth(request):
+    feedly = get_feedly_client()
+    code_url = feedly.get_code_url(FEEDLY_REDIRECT_URI)
+    return redirect(code_url)

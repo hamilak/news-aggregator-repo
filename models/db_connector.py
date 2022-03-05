@@ -12,3 +12,4 @@ cursor.execute("select * from categories")
 for i in cursor:
     print(i)
 # print(db)
+
