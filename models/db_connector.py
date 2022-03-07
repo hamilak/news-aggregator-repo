@@ -7,9 +7,10 @@ db = mysql.connector.connect(
     database="database"
 )
 
+
 cursor = db.cursor()
-cursor.execute("select * from categories")
-for i in cursor:
-    print(i)
+# cursor.execute("select * from categories")
+# for i in cursor:
+#     print(i)
 # print(db)
 

@@ -1,6 +1,8 @@
 import requests
 import json
 from werkzeug.utils import redirect
+from models.tables import db, Articles, Categories
+from datetime import datetime
 
 
 class FeedlyClient(object):
@@ -127,3 +129,4 @@ def auth(request):
     feedly = get_feedly_client()
     code_url = feedly.get_code_url(FEEDLY_REDIRECT_URI)
     return redirect(code_url)
+
