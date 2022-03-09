@@ -9,7 +9,7 @@ db = mysql.connector.connect(
 
 
 cursor = db.cursor()
-# cursor.execute("select * from categories")
+# cursor.execute("create database user")
 # for i in cursor:
 #     print(i)
 # print(db)

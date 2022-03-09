@@ -22,18 +22,18 @@ class Articles(db.Model):
     __tablename__ = 'articles'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    news_title = db.Column(db.String(200))
+    news_title = db.Column(db.String(500))
     url = db.Column(db.String(1000))
-    news_content = db.Column(db.String(2000))
+    news_content = db.Column(db.String(5000))
     published_at = db.Column(db.DateTime, default=datetime.utcnow)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
     # category = db.relationship('Categories', backref='article', lazy=True)
 
-    def __init__(self, news_title, url, news_content, updated_at, category_id):
+    def __init__(self, news_title, url, news_content, published_at, category_id):
         self.news_title = news_title
         self.url = url
         self.news_content = news_content
-        self.updated_at = updated_at
+        self.published_at = published_at
         self.category_id = category_id
 
 
